@@ -66,8 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                 binding.btnLogin.setEnabled(true);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    // Save token
+                    // Save both access token and refresh token
                     retrofitClient.saveToken(response.body().getToken());
+                    if (response.body().getRefreshToken() != null) {
+                        retrofitClient.saveRefreshToken(response.body().getRefreshToken());
+                    }
 
                     // Navigate to Dashboard
                     Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);

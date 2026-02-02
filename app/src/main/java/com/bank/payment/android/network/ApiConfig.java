@@ -1,18 +1,24 @@
 package com.bank.payment.android.network;
 
 /**
- * API Configuration Constants
- * Update BASE_URL based on your testing environment:
- * - Emulator: "http://10.0.2.2:8080/"
- * - Physical Device: "http://<YOUR_PC_IP>:8080/"
+ * API Configuration constants.
+ * Change BASE_URL based on your environment:
+ * - Emulator: Use EMULATOR_URL (10.0.2.2 maps to localhost)
+ * - Physical Device: Update DEVICE_URL with your PC's IP address
  */
 public class ApiConfig {
-    // For Android Emulator - 10.0.2.2 maps to host machine's localhost
-    public static final String BASE_URL_EMULATOR = "http://10.0.2.2:8080/";
 
-    // For Physical Device - Replace with your PC's local IP (e.g., 192.168.1.100)
-    public static final String BASE_URL_DEVICE = "http://192.168.1.1:8080/";
+    // For Android Emulator (10.0.2.2 is the emulator's localhost mapping)
+    public static final String EMULATOR_URL = "http://10.0.2.2:8080";
+    public static final String EMULATOR_WS_URL = "ws://10.0.2.2:8082";
 
-    // Active Base URL - Change this based on your testing environment
-    public static final String BASE_URL = BASE_URL_EMULATOR;
+    // For Physical Device - Update with your PC's local IP
+    public static final String DEVICE_URL = "http://192.168.1.100:8080";
+    public static final String DEVICE_WS_URL = "ws://192.168.1.100:8082";
+
+    // Active URL - Switch between EMULATOR_URL and DEVICE_URL
+    public static final String BASE_URL = EMULATOR_URL;
+
+    // WebSocket URL - connects directly to bank-engine (not via gateway)
+    public static final String WEBSOCKET_URL = EMULATOR_WS_URL;
 }

@@ -106,4 +106,22 @@ public class RetrofitClient {
     public boolean isLoggedIn() {
         return getToken() != null && !getToken().isEmpty();
     }
+
+    // Refresh Token Management
+    private static final String REFRESH_TOKEN_KEY = "refresh_token";
+
+    public void saveRefreshToken(String refreshToken) {
+        securePrefs.edit().putString(REFRESH_TOKEN_KEY, refreshToken).apply();
+    }
+
+    public String getRefreshToken() {
+        return securePrefs.getString(REFRESH_TOKEN_KEY, null);
+    }
+
+    public void clearAllTokens() {
+        securePrefs.edit()
+                .remove(TOKEN_KEY)
+                .remove(REFRESH_TOKEN_KEY)
+                .apply();
+    }
 }
