@@ -3,3 +3,36 @@
 /app/build/
 /app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/
 /build/
+
+# ===== Gradle =====
+.gradle/
+build/
+
+# Ignore all build folders in modules
+**/build/
+
+# Local configuration file (machine specific)
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Log files
+*.log
+
+# Generated files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Keystore files (very important)
+*.jks
+*.keystore
+
+# Temporary files
+*.tmp
